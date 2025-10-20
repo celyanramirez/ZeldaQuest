@@ -56,7 +56,7 @@ export function Enemy({ id, position, health, type }: EnemyProps) {
       
       // Change direction every 3 seconds or if hitting a wall
       if (time - lastDirectionChange > 3 || !isValidPosition(newPosition)) {
-        const directions = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+        const directions: [number, number][] = [[1, 0], [-1, 0], [0, 1], [0, -1]];
         const newDir = directions[Math.floor(Math.random() * directions.length)];
         setPatrolDirection(newDir);
         setLastDirectionChange(time);
@@ -69,7 +69,7 @@ export function Enemy({ id, position, health, type }: EnemyProps) {
     // Validate new position
     if (isValidPosition(newPosition)) {
       setCurrentPosition(newPosition);
-      meshRef.current.position.set(...newPosition);
+      meshRef.current.position.set(newPosition[0], newPosition[1], newPosition[2]);
     }
 
     // Color based on health

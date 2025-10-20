@@ -19,7 +19,7 @@ export function GameScene() {
       <Player />
       
       {/* Enemies */}
-      {enemies.map((enemy) => (
+      {enemies.map((enemy: any) => (
         <Enemy
           key={enemy.id}
           id={enemy.id}

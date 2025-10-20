@@ -56,9 +56,9 @@ export function Player() {
       playHit();
       
       // Check for enemies in attack range
-      const playerPos = new Vector3(...position);
-      enemies.forEach(enemy => {
-        const enemyPos = new Vector3(...enemy.position);
+      const playerPos = new Vector3(position[0], position[1], position[2]);
+      enemies.forEach((enemy: any) => {
+        const enemyPos = new Vector3(enemy.position[0], enemy.position[1], enemy.position[2]);
         const distance = playerPos.distanceTo(enemyPos);
         
         if (distance <= attackRange) {
@@ -89,7 +89,7 @@ export function Player() {
     }
 
     // Update mesh position
-    meshRef.current.position.set(...position);
+    meshRef.current.position.set(position[0], position[1], position[2]);
     
     // Simple rotation based on facing direction
     let rotation = 0;
